@@ -11,14 +11,24 @@ class Deezer(MusicBase):
         super().__init__(service_name, service_filter_links)
 
     def object_to_track(self, track_object: any) -> Track:
+        track_id = track_object['id']
         artist_name = track_object['artist']['name']
         track_title = track_object['title']
         track_link = track_object['link']
+        track_cover = track_object['album']['cover_big']
+        track_duration = track_object['duration']
+        track_date = track_object.get('release_date')
 
-        return Track(track_title, 
-                    (artist_name, ), 
-                    track_link,
-                    self.service_name)
+        return Track(
+                    id              =   track_id,
+                    name            =   track_title, 
+                    authors         =   (artist_name, ), 
+                    url             =   track_link,
+                    origin_service  =   self.service_name,
+                    cover           =   track_cover,
+                    time_length     =   track_duration,
+                    realese_date    =   track_date)
+    
     
     def get_track_from_message(self, message) -> Track:
         music_url = self.extract_url_from_text(message)

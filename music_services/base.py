@@ -6,20 +6,33 @@ from telegram import Message
 
 
 class Track:
-    def __init__(self, 
-                 track_name: str, 
-                 track_authors: list[str],
-                 track_url: str,
-                 track_origin_service: str,
-                 track_cover: str = None,
-                 track_time_length: str = None):
+    
+    def __init__(self,
+                 id: int|str,
+                 name: str, 
+                 authors: list[str],
+                 url: str,
+                 origin_service: str,
+                 cover: str = None,
+                 time_length: str = None,
+                 realese_date: str = None):
         
-        self.name = track_name
-        self.authors = track_authors
-        self.url = track_url
-        self.origin_service = track_origin_service
-        self.cover = track_cover
-        self.time_length = track_time_length
+        self.id = id
+        self.name = name
+        self.authors = authors
+        self.url = url
+        self.origin_service = origin_service
+        self.cover = cover
+        self.time_length = time_length
+        self.realese_date = realese_date
+
+    def get_time(self):
+        if not self.time_length:
+            return None
+        
+        minutes = self.time_length // 60
+        seconds = self.time_length % 60
+        return f"{minutes}:{seconds}"
 
 
 class MusicFilter(MessageFilter):

@@ -1,7 +1,3 @@
-import threading
-import time
-
-from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes
 
 from config import BOT_TOKEN, SERVICES_ENABLED
