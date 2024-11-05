@@ -9,6 +9,10 @@ This bot is designed to enhance the music sharing experience in chat platforms b
     * [Spotify](#spotify)
     * [Deezer](#deezer)
     * [Apple Music](#apple-music)
+    * [Amazon Music](#amazon-music)
+    * [Yandex Music](#yandex-music)
+    * [Youtube Music](#youtube-music)
+
 
 ## Features
 
@@ -65,3 +69,12 @@ python3 main.py
 ### Deezer
 
 ### Apple Music
+
+### Amazon Music
+
+### Yandex Music
+
+> [!IMPORTANT]
+> API avaible only on ru region
+
+### Youtube Music
