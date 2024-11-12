@@ -66,7 +66,44 @@ python3 main.py
 
 ### Spotify
 
+1. Get Client id and Secret id in [Spotify Developer](https://developer.spotify.com/dashboard)
+2. At your discretion. Put the keys in the `.env` file and create variables in `config.py`, importing them
+
+`.env`
+```env
+SPOTIFY_CLIENT_ID=<YOUR_CLIENT_ID>
+SPOTIFY_CLIENT_SECRET=<YOUR_SECRET_KEY>
+```
+`config.py`
+```py
+# Other service credentials
+SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
+SPOTIFY_CLIENT_SECRET = os.environ['SPOTIFY_CLIENT_SECRET']
+```
+3. Import the `Spotify` class and apply the keys in to the class constructor to `SERVICES_ENABLED` in your `config.py` file.
+```py
+from music_services.spotify import Spotify
+
+SERVICES_ENABLED = (
+    ...
+    Spotify(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET),
+    ...
+)
+```
+
 ### Deezer
+
+All you need to do is import the `Deezer` class and set it to `SERVICES_ENABLED` in your `config.py` file.
+
+```py
+from music_services.deezer import Deezer
+
+SERVICES_ENABLED = (
+    ...
+    Deezer(),
+    ...
+)
+```
 
 ### Apple Music
 
